@@ -17,8 +17,13 @@ const ProductItem = ({ product, handleAddToCart }) => {
     }
   }
 
-  const handleQuantity = React.useCallback(() => {
-    setQuantity(quantityInput.current.value)
+  const handleQuantity = React.useCallback((quant) => {
+    const newValue = quantityInput.current.value;
+    if (newValue <= quant) {
+      setQuantity(newValue);
+    } else {
+      setQuantity(quant)
+    }
   }, [])
 
   return (
@@ -41,14 +46,14 @@ const ProductItem = ({ product, handleAddToCart }) => {
               ref={quantityInput}
               id={product.name + '_' + product.id} 
               className="w-20 text-xs border-2 rounded-lg p-1" 
-              onChange={handleQuantity}
+              onChange={() => handleQuantity(product.stock)}
             />
             <button 
               type="button" 
-              className="w-10 alternova-bg text-white rounded-lg p-1"
+              className="w-8 h-8 alternova-bg text-white rounded-full p-1"
               onClick={() => handleAction()}
             >
-                <PlusIcon />
+              <PlusIcon />
             </button>
         </div>}
         {message && <p className="Product-footer text-xs flex px-5 mt-2 alternova-font justify-center">Select more than zero</p>}
