@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { ArrowLeftIcon } from '@heroicons/react/24/solid';
 import AppContext from '../Context/AppContext';
 import CartItem from './CartItem';
@@ -15,14 +15,18 @@ const ShoppingCart = () => {
         return arr.reduce((a,b) => a+b)
     }
 
+    if (!cart.length) {
+        return <Navigate to="/" />
+    }
+
   return (
     <div className="ShoppingCart grid w-full border-2 px-5 rounded-b-lg relative">
         <h1 className="mx-auto mt-5 alternova-bg w-full justify-center rounded-lg h-10 items-center flex font-bold text-white">Shopping Cart</h1>
         <div className="ShoppingCart-tableheader flex justify-between my-5 font-bold">
-            <span>Product</span>
-            <span>Quantity</span>
-            <span>$ / Unity</span>
-            <span>$ Total </span>
+            <span className="w-16 text-center">Product</span>
+            <span className="w-16 text-center">Quantity</span>
+            <span className="w-16 text-center">$ Unity</span>
+            <span className="w-16 text-center">$ Total </span>
         </div>
         {cart?.map(item => <CartItem key={item.id} item={item} />)}
         <div className="ShoppingCart-footer flex justify-between mt-10 mb-5">

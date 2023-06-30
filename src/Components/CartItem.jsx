@@ -4,10 +4,10 @@ const CartItem = ({ item }) => {
 
   return (
     <div className="ShoppingCart-tablecontent flex justify-between my-2 text-xs">
-        <span>{item.name}</span>
-        <span>{item.quantity}</span>
-        <span>$ {item.price}</span>
-        <span>$ {item.price * item.quantity}</span>
+        <span className="w-16 text-center">{item.name}</span>
+        <span className="w-16 text-center">{item.quantity}</span>
+        <span className="w-16 text-center">$ {item.price}</span>
+        <span className="w-16 text-center">$ {item.price * item.quantity}</span>
     </div>
   )
 }

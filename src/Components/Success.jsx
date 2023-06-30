@@ -1,11 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import AppContext from '../Context/AppContext';
 
 const Success = () => {
 
   const { state, reload } = React.useContext(AppContext);
   const { cart } = state;
+
+  if (!cart.length) {
+    return <Navigate to="/" />
+}
 
   return (
     <div className="Success">
@@ -14,7 +18,7 @@ const Success = () => {
         <h1 className="font-bold alternova-font text-xl ml-2">Shop</h1>
       </div>
       <div className="Success-message flex justify-center items-center h-full">
-          <h1 className="font-bold text-xl mt-28"> Thanks for buy with Alternova Shop </h1>
+          <h1 className="font-bold text-xl mt-28 mb-10"> Thanks for buy with Alternova Shop. </h1>
       </div>
       <div className="Success-order mx-auto my-5 w-52">
         {cart.map(product => 
@@ -29,7 +33,7 @@ const Success = () => {
           <button 
             className="mt-4 mx-auto alternova-bg flex justify-center items-center text-white font-bold rounded-lg h-10 w-20"
             onClick={() => setTimeout(() => { reload() }, 500)}>
-            Accept
+            Go back
           </button>
       </Link>
     </div>
