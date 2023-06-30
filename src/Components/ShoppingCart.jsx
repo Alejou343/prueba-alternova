@@ -17,7 +17,7 @@ const ShoppingCart = () => {
 
   return (
     <div className="ShoppingCart grid w-full border-2 px-5 rounded-b-lg relative">
-        <h1 className="mx-auto mt-5 bg-cyan-500 w-full justify-center rounded-lg h-10 items-center flex font-bold text-white">Shopping Cart</h1>
+        <h1 className="mx-auto mt-5 alternova-bg w-full justify-center rounded-lg h-10 items-center flex font-bold text-white">Shopping Cart</h1>
         <div className="ShoppingCart-tableheader flex justify-between my-5 font-bold">
             <span>Product</span>
             <span>Quantity</span>
@@ -26,13 +26,18 @@ const ShoppingCart = () => {
         </div>
         {cart?.map(item => <CartItem key={item.id} item={item} />)}
         <div className="ShoppingCart-footer flex justify-between mt-10 mb-5">
-            <h1 className="font-bold flex items-center"> $ {calculateFinalPrice()}</h1>
+            <h1 className="flex items-center"> 
+                Total Price: &nbsp; 
+                <b> 
+                    $ {calculateFinalPrice()}
+                </b>
+            </h1>
             <Link to="/success">
                 <button className="bg-green-400 p-2 rounded-lg font-bold text-white"> Create Order </button>
             </Link>
         </div>
         <Link to="/">
-            <div className="ShoppingCart-icon w-5 h-5 absolute top-8 left-8">
+            <div className="ShoppingCart-icon w-5 h-5 absolute top-8 left-8 text-white">
                 <ArrowLeftIcon />    
             </div>
         </Link> 
