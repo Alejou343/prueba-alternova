@@ -4,8 +4,8 @@ import ProductList from './ProductList';
 import { Link } from 'react-router-dom';
 import AppContext from '../Context/AppContext';
 import Footer from './Footer';
-import Lightmode from '../Assets/light.png'
-import Darkmode from '../Assets/dark.png'
+import Lightmode from '../Assets/lighti.png';
+import Darkmode from '../Assets/darki.png';
 
 const Header = () => {
 
