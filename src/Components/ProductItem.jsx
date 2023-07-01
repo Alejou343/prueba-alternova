@@ -15,7 +15,7 @@ const ProductItem = ({ product, handleAddToCart }) => {
     } else {
       setMessage(true);
     }
-  }
+  };
 
   const handleQuantity = React.useCallback((quant) => {
     const newValue = quantityInput.current.value;
@@ -24,42 +24,50 @@ const ProductItem = ({ product, handleAddToCart }) => {
     } else {
       setQuantity(quant)
     }
-  }, [])
+  }, []);
 
   return (
     <div className="ProductItem w-60 border-2 rounded-lg p-2">
-        <img src={product.img} 
+      <img 
+        src={product.img} 
         alt={product.name} 
         className="w-full h-56 rounded-lg object-cover"
-        />
-        <div className="ProductItem-information flex justify-between mb-2 p-2 mt-2">
-            <span> {product.name} </span>
-            <span className="font-bold"> $ {product.price} </span>
-        </div>
-        {product.stock > 0 && <div className="Product-footer flex justify-between px-5 mb-1">
-            <input type="number" 
-              placeholder="Quantity" 
-              min="0" 
-              max={product.stock} 
-              name="counter" 
-              value={quantity}
-              ref={quantityInput}
-              id={product.name + '_' + product.id} 
-              className="w-20 text-xs border-2 rounded-lg p-1" 
-              onChange={() => handleQuantity(product.stock)}
-            />
-            <button 
-              type="button" 
-              className="w-8 h-8 alternova-bg text-white rounded-full p-1"
-              onClick={() => handleAction()}
-            >
-              <PlusIcon />
-            </button>
+      />
+      <div className="ProductItem-information flex justify-between mb-2 p-2 mt-2">
+          <span> {product.name} </span>
+          <span className="font-bold"> $ {product.price} </span>
+      </div>
+      {product.stock > 0 && 
+        <div className="Product-footer flex justify-between px-5 mb-1">
+          <input type="number" 
+            placeholder="Qant" 
+            min="0" 
+            max={product.stock} 
+            name="counter" 
+            value={quantity}
+            ref={quantityInput}
+            id={product.name + '_' + product.id} 
+            className="w-14 text-xs border-2 rounded-lg p-1" 
+            onChange={() => handleQuantity(product.stock)}
+          />
+          <button 
+            type="button" 
+            className="w-8 h-8 alternova-bg text-white rounded-full p-1"
+            onClick={() => handleAction()}
+          >
+            <PlusIcon />
+          </button>
         </div>}
-        {message && <p className="Product-footer text-xs flex px-5 mt-2 alternova-font justify-center">Select more than zero</p>}
-        {product.stock == 0 && <p className="Product-footer mt-6 text-xs flex px-5 alternova-font justify-center">No available in stock</p>}
+      {message && 
+        <p className="Product-footer text-xs flex px-5 mt-2 alternova-font justify-center">
+          Select more than zero
+        </p>}
+      {product.stock == 0 && 
+        <p className="Product-footer mt-6 text-xs flex px-5 alternova-font justify-center">
+          No available in stock
+        </p>}
     </div>
   )
-}
+};
 
 export default ProductItem;

@@ -12,14 +12,14 @@ const useInitialState = () => {
             products: [...state.products],
             cart: [...state.cart, payload]
         });
-    }
+    };
 
     const reload = () => {
         setState({
             ...state, 
             cart: []
         })
-    }
+    };
 
     return {
         state,

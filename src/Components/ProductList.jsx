@@ -9,7 +9,7 @@ const ProductList = () => {
   const [search, setSearch] = React.useState(''); 
   const { state, addToCart } = React.useContext(AppContext);
   const { products } = state;
-  const filteredProducts = products.filter(x => x.name.toLowerCase().includes(search.toLowerCase()))
+  const filteredProducts = products.filter(x => x.name.toLowerCase().includes(search.toLowerCase()));
 
   const handleAddToCart = (product, quantity) => {
     addToCart(product, quantity)
@@ -29,16 +29,16 @@ const ProductList = () => {
           onChange = {(e) => setSearch(e.target.value)} 
         />
       </div>
-    <div className="ProductList grid grid-cols-4 gap-8 mt-5 mb-12 justify-items-center mx-28">
-      {filteredProducts.map(product => 
-      <ProductItem 
-        key={product.id} 
-        product={product}
-        handleAddToCart={handleAddToCart}
-      />)}
-    </div>
+      <div className="ProductList grid grid-cols-4 gap-8 mt-5 mb-12 justify-items-center mx-28">
+        {filteredProducts.map(product => 
+          <ProductItem 
+            key={product.id} 
+            product={product}
+            handleAddToCart={handleAddToCart}
+          />)}
+      </div>
     </div>
   )
-}
+};
 
 export default ProductList;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Footer = () => {
   return (
@@ -6,6 +6,6 @@ const Footer = () => {
         <h3>Designed by Alternova, all rights reserved ©</h3>
     </div>
   )
-}
+};
 
-export default Footer
+export default Footer;

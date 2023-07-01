@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import AppContext from '../Context/AppContext';
+import Purchase from './Purchase';
 
 const Success = () => {
 
@@ -9,7 +10,7 @@ const Success = () => {
 
   if (!cart.length) {
     return <Navigate to="/" />
-}
+};
 
   return (
     <div className="Success">
@@ -21,13 +22,7 @@ const Success = () => {
           <h1 className="font-bold text-xl mt-28 mb-10"> Thanks for buy with Alternova Shop. </h1>
       </div>
       <div className="Success-order mx-auto my-5 w-52">
-        {cart.map(product => 
-          <div className="Success-item flex my-2 justify-between w-60 border-2 p-2 rounded-lg">
-            <p className="font-bold flex items-center">{product.name}</p>
-            <p className="font-bold text-xs flex items-center">x {product.quantity}</p>
-            <img src={product.img} alt={product.name} className="w-16 h-16"/>
-          </div>
-          )}
+        {cart?.map((product, index) => <Purchase key= {index} product={product}/>)}
       </div>
       <Link to="/">
           <button 
@@ -38,6 +33,6 @@ const Success = () => {
       </Link>
     </div>
   )
-}
+};
 
-export default Success
+export default Success;

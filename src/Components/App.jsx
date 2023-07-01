@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Header from './Header';
+import useInitialState from '../Hooks/useInitialState';
+import AppContext from '../Context/AppContext.js';
 import ShoppingCart from './ShoppingCart';
 import NotFound from './NotFound';
 import Success from './Success';
-import AppContext from '../Context/AppContext.js';
-import useInitialState from '../Hooks/useInitialState';
+import Header from './Header';
 import '../Styles/App.css';
 
 function App() {
@@ -24,6 +24,6 @@ function App() {
       </BrowserRouter>
     </AppContext.Provider>
   )
-}
+};
 
-export default App
+export default App;
