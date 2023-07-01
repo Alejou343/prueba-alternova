@@ -16,9 +16,9 @@ const ProductList = () => {
   };
 
   return (
-    <div className="mt-28">
-      <div className="relative w-60 mx-auto">
-        <div className="w-4 h-4 absolute right-3 top-3 alternova-font">
+    <div className="mt-16">
+      <div className="relative w-60 mx-auto pt-11">
+        <div className="w-4 h-4 absolute right-3 top-14 alternova-font">
           <MagnifyingGlassIcon />
         </div>
         <input 

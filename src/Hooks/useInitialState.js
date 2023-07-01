@@ -3,6 +3,7 @@ import initialProducts from '../Products/initialProducts.js';
 
 const useInitialState = () => {
     const [state, setState] = React.useState(initialProducts);
+    const [mode, setMode] = React.useState(false);
 
     const addToCart = (payload) => {
         state.products[payload.id - 1]['stock'] = state.products[payload.id - 1]['stock'] - payload.quantity
@@ -22,8 +23,10 @@ const useInitialState = () => {
 
     return {
         state,
+        mode, 
         reload,
-        addToCart
+        addToCart,
+        setMode
     }
 };
 

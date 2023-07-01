@@ -4,16 +4,30 @@ import ProductList from './ProductList';
 import { Link } from 'react-router-dom';
 import AppContext from '../Context/AppContext';
 import Footer from './Footer';
+import Lightmode from '../Assets/light.png'
+import Darkmode from '../Assets/dark.png'
 
 const Header = () => {
 
-  const { state } = React.useContext(AppContext);
+  const { state, mode, setMode } = React.useContext(AppContext);
   const { cart } = state;
 
   return (
-    <div className="Home">
+    <div className={mode && 'Home'}>
         <div className="Header z-10 fixed flex justify-center alternova-border border-b-2 bg-white px-3 h-20 rounded-b-lg items-center w-full top-0 mt-0">
             <img className="w-56" src="https://www.alternova.co/wp-content/uploads/2021/03/cropped-logo-Alternova.png" alt="LogoAlternova.jpg" />
+            {!mode && <img 
+              className="flex absolute left-8 w-12 cursor-pointer" 
+              src={Darkmode} 
+              alt="Darkmode.png" 
+              onClick={() => setMode(true)}
+            />}
+            {mode && <img 
+              className="flex absolute left-8 w-12 cursor-pointer" 
+              src={Lightmode} 
+              alt="Lightmode.png" 
+              onClick={() => setMode(false)}
+            />}
             <h1 className="font-bold alternova-font text-xl ml-2">Shop</h1>
             {cart.length > 0 ? 
             <Link to="/shopping-cart">
