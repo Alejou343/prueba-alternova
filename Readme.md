@@ -25,6 +25,8 @@ In the **Hooks** folder, you can find a custom hook called useInitialState, whic
 
 In the **Products** folder, an object is present containing the available products in the shop. Each product has properties such as its name, price, image, and quantity available in stock.
 
+In the **Routes** folder, we can found the main component of our application (App) with the Provider, Routes integrated by React router dom and children components.
+
 In the **Styles** folder, there are files that assist with styling the application, including responsive design and global styles.
 
 **The other files** are used to configure the project with custom utilities for production and deployment to a hosting website, ensuring a high-quality project.

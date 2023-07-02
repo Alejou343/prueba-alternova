@@ -2,10 +2,10 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import useInitialState from '../Hooks/useInitialState';
 import AppContext from '../Context/AppContext.js';
-import ShoppingCart from './ShoppingCart';
-import NotFound from './NotFound';
-import Success from './Success';
-import Header from './Header';
+import ShoppingCart from '../Components/ShoppingCart';
+import NotFound from '../Components/NotFound';
+import Success from '../Components/Success';
+import Header from '../Components/Header';
 import '../Styles/App.css';
 
 function App() {
